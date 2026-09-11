@@ -104,11 +104,12 @@ function CarMotionLayer({ onTrigger }: { onTrigger: () => void }) {
           prefersReduced
             ? { opacity: 0, scale: 0.98 }
             : {
-                x: "22vw",
-                y: "-110px",
-                scale: 0.22,
+                x: "-35vw",
+                y: "-75px",
+                scale: 0.38,
+                rotate: -3.5,
                 opacity: 0,
-                filter: "blur(5px) brightness(0.55)",
+                filter: "blur(4px) brightness(0.6)",
               }
         }
         animate={
@@ -116,21 +117,23 @@ function CarMotionLayer({ onTrigger }: { onTrigger: () => void }) {
             ? { opacity: 1, scale: 1 }
             : settled
             ? {
-                x: [0, 1.5, -1, 0],
-                y: [0, -3.5, 1, 0],
+                x: [0, 1.8, -1.2, 0],
+                y: [0, -3.0, 1.2, 0],
                 scale: 1.0,
+                rotate: 0,
                 opacity: 1.0,
                 filter: "blur(0px) brightness(1.0)",
               }
             : {
-                x: ["22vw", "14vw", "4vw", "0vw"],
-                y: ["-110px", "-65px", "-18px", "0px"],
-                scale: [0.22, 0.50, 0.82, 1.0],
+                x: ["-35vw", "-18vw", "6vw", "0vw"],
+                y: ["-75px", "-32px", "4px", "0px"],
+                scale: [0.38, 0.68, 0.96, 1.0],
+                rotate: [-3.5, -1.8, 0, 0],
                 opacity: [0, 0.85, 1.0, 1.0],
                 filter: [
-                  "blur(5px) brightness(0.55)",
-                  "blur(2.5px) brightness(0.8)",
-                  "blur(0.8px) brightness(1.1)",
+                  "blur(4px) brightness(0.6)",
+                  "blur(2px) brightness(0.85)",
+                  "blur(0.5px) brightness(1.08)",
                   "blur(0px) brightness(1.0)",
                 ],
               }
@@ -140,14 +143,14 @@ function CarMotionLayer({ onTrigger }: { onTrigger: () => void }) {
             ? { duration: 0.6, delay: 0.2 }
             : settled
             ? {
-                duration: 2.6,
+                duration: 2.5,
                 repeat: Infinity,
                 ease: "easeInOut",
               }
             : {
                 duration: 2.2,
                 delay: 0.25,
-                times: [0, 0.35, 0.72, 1.0],
+                times: [0, 0.32, 0.72, 1.0],
                 ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
               }
         }
@@ -504,20 +507,20 @@ export default function HeroScene() {
         style={{ y: bgY, opacity: heroOpacity }}
       >
         <Image
-          src="/assets/hero-bg.jpg"
+          src="/assets/hero-bg-v2.jpg"
           alt=""
           fill
           priority
           className="object-cover object-bottom sm:object-center"
           sizes="100vw"
-          quality={88}
+          quality={75}
         />
         {/* Night atmosphere grading */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse at 50% 32%, rgba(10,10,11,0.2) 0%, rgba(10,10,11,0.65) 60%, rgba(10,10,11,0.92) 100%)",
+              "radial-gradient(ellipse at 50% 32%, rgba(10,10,11,0.1) 0%, rgba(10,10,11,0.5) 60%, rgba(10,10,11,0.85) 100%)",
           }}
         />
       </motion.div>
@@ -528,17 +531,17 @@ export default function HeroScene() {
         aria-hidden="true"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 65%, rgba(181,255,43,0.06) 0%, rgba(0,240,255,0.04) 35%, transparent 70%)",
+            "radial-gradient(ellipse at 50% 65%, rgba(181,255,43,0.05) 0%, rgba(0,240,255,0.04) 35%, transparent 70%)",
         }}
       />
 
       {/* ─── Layer 3: Road surface sheen ─── */}
       <div
-        className="absolute inset-x-0 bottom-0 h-[45%] z-[2] pointer-events-none"
+        className="absolute inset-x-0 bottom-0 h-[38%] z-[2] pointer-events-none"
         aria-hidden="true"
         style={{
           background:
-            "linear-gradient(180deg, transparent 0%, rgba(10,10,11,0.25) 40%, rgba(10,10,11,0.85) 100%)",
+            "linear-gradient(180deg, transparent 0%, rgba(10,10,11,0.1) 40%, rgba(10,10,11,0.45) 100%)",
         }}
       />
 
